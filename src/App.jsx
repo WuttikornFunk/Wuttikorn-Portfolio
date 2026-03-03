@@ -38,7 +38,7 @@ function App() {
           >
 
             <button className="bg-slate-900 dark:bg-white text-white dark:text-black text-[11px] md:text-sm px-5 py-2 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition duration-300 shadow-lg">
-              Download Resume
+              My Resume
             </button>
           </a>
         </nav>
@@ -61,7 +61,7 @@ function App() {
               <span className="text-black dark:text-white transition-colors duration-300">Developer</span>
             </h1>
 
-            <p className="text-gray-400 mb-1 mx-auto max-w-lg leading-tight text-[clamp(0.95rem,2vw,1.1rem)] italic">
+            <p className="text-gray-600 dark:text-gray-300 mb-1 mx-auto max-w-lg leading-tight text-[clamp(0.95rem,2vw,1.1rem)] italic">
               "A 3rd-year Computer Science student combining the power of AI with modern
               Web & Mobile development to solve real-world problems."
             </p>
@@ -94,7 +94,7 @@ function App() {
             About Me
           </h2>
 
-          <p className="max-w-xl mx-auto text-gray-400 text-[clamp(1.1rem,2.5vw,1.3rem)] leading-loose">
+          <p className="max-w-xl mx-auto text-gray-600 dark:text-gray-300 text-[clamp(1.1rem,2.5vw,1.3rem)] leading-loose">
             A 3rd-year Computer Science student at Srinakharinwirot University (SWU) with a deep passion
             for Artificial Intelligence and Full-Stack Development. I focus on building intelligent solutions that combine
             Computer Vision models with modern web and mobile applications to solve real-world problems.
@@ -265,113 +265,20 @@ function App() {
             Contact Me
           </h2>
 
-          {/* Form Container with Blue Glow Effect */}
-          <div className="relative rounded-2xl bg-slate-50 dark:bg-[#1c1c1c] p-8 md:p-12 shadow-[0_0_50px_-10px_rgba(59,130,246,0.5)] border border-slate-200 dark:border-white/5">
-            <form className="space-y-6"
-              onSubmit={async (event) => {
-                event.preventDefault();
-                const form = event.target;
+          <div className="flex justify-center">
+            <a
+              href="mailto:wuttikornuptown@gmail.com"
+              className="inline-flex items-center gap-3 px-10 py-5 rounded-full text-xl font-bold transition-all duration-300
 
-                const formData = new FormData(form);
-                const dataToSave = {
-                  name: formData.get('name'),
-                  email: formData.get('email'),
-                  message: formData.get('message')
-                };
+              text-white bg-black shadow- hover:bg-blue-500 hover:shadow- hover:-translate-y-1
 
-                const button = form.querySelector('button[type="submit"]');
-                const originalText = button.innerText;
-                button.innerText = "Sending...";
-                button.disabled = true;
-
-                try {
-                  const response = await fetch('http://localhost:5000/api/contact', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(dataToSave)
-                  });
-
-                  const data = await response.json();
-
-                  if (response.ok) {
-                    button.innerText = "Message Sent! 🎉";
-                    form.reset(); // ล้างข้อมูลในฟอร์มหลังส่งสำเร็จ
-                    setTimeout(() => {
-                      button.innerText = originalText;
-                      button.disabled = false;
-                    }, 3000); // กลับเป็นปุ่มเดิมใน 3 วินาที
-                  }
-                } catch (error) {
-                  console.error(error);
-                  button.innerText = "Failed to send ❌";
-                  setTimeout(() => {
-                    button.innerText = originalText;
-                    button.disabled = false;
-                  }, 3000);
-                }
-              }}
+              dark:text-black dark:bg-white dark:shadow- dark:hover:bg-blue-500 dark:hover:shadow-"
             >
-
-
-              {/* Name Input */}
-              <div className="space-y-2">
-                <label htmlFor="name" className="block text-slate-900 dark:text-white font-medium">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  placeholder="Your name"
-                  className="w-full bg-white dark:bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-slate-900 dark:text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-300"
-                />
-              </div>
-
-              {/* Email Input */}
-              <div className="space-y-2">
-                <label htmlFor="email" className="block text-slate-900 dark:text-white font-medium">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="Your.Email@example.com"
-                  className="w-full bg-white dark:bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-slate-900 dark:text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-300"
-                />
-              </div>
-
-              {/* Message Input */}
-              <div className="space-y-2">
-                <label htmlFor="message" className="block text-slate-900 dark:text-white font-medium">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows="5"
-                  placeholder="How can I help you?"
-                  className="w-full bg-white dark:bg-[#0a0a0a] border border-slate-200 dark:border border-white/10 rounded-lg px-4 py-3 text-slate-900 dark:text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-300 resize-none"
-                ></textarea>
-              </div>
-
-              {/* Submit Button */}
-              <div className="pt-4">
-                <button
-                  type="submit"
-                  className="w-full bg-black dark:bg-white/10 border border-blue-500/50 hover:border-blue-500 text-white font-semibold py-3.5 rounded-lg transition duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:bg-blue-500/10 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
+              <span>📧 Send Email</span>
+            </a>
           </div>
         </section>
+
         {/* --- ปุ่มสลับโหมด --- */}
         <div className="fixed left-8 bottom-8 z-50">
           <button

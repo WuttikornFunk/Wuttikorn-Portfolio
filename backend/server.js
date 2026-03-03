@@ -30,29 +30,7 @@ app.get('/api/projects', async (req, res) => {
     }
 });
 
-// --- ส่วนที่ 2: เพิ่มใหม่! สำหรับเก็บข้อมูล Contact ---
-const contactSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    message: String,
-    createdAt: { type: Date, default: Date.now } // เก็บเวลาที่ส่งมา
-});
-const Contact = mongoose.model('Contact', contactSchema);
 
-// สร้าง Route สำหรับรับข้อมูลจากฟอร์มหน้าเว็บ
-app.post('/api/contact', async (req, res) => {
-    try {
-        const newContact = new Contact({
-            name: req.body.name,
-            email: req.body.email,
-            message: req.body.message
-        });
-        await newContact.save(); // บันทึกลง Database
-        res.status(201).json({ message: "บันทึกข้อมูลการติดต่อเรียบร้อยแล้ว!" });
-    } catch (err) {
-        res.status(400).json({ message: "เกิดข้อผิดพลาด: " + err.message });
-    }
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server is running on port ${PORT}`));
