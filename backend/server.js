@@ -8,8 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // เชื่อมต่อกับ MongoDB Atlas 
-// (แนะนำว่ารหัสผ่านควรใส่ในไฟล์ .env นะครับเพื่อความปลอดภัย)
-mongoose.connect("mongodb+srv://Wuttikorn_DB:0996141240Tle@portfolio.sx43egr.mongodb.net/portfolio_db?retryWrites=true&w=majority&appName=Portfolio")
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("✅ MongoDB Connected Successfully!"))
     .catch(err => console.error("❌ Connection Error:", err));
 
