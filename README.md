@@ -1,16 +1,46 @@
-# React + Vite
+# 🚀 Wuttikorn Jantawises Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my professional portfolio. This project is a full-stack web application built using the **MERN Stack** (MongoDB, Express, React, Node.js), designed to showcase my skills in AI development and web engineering.
 
-Currently, two official plugins are available:
+## 🌟 Key Features
+* **Modern & Responsive UI**: Fully responsive design with Dark Mode support using Tailwind CSS.
+* **Custom Contact Form**: A functional contact system that stores messages directly in **MongoDB Atlas**.
+* **Secure Backend**: Uses environment variables (`.env`) to protect sensitive database credentials.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
+* **Frontend**: React.js, Tailwind CSS, Vite
+* **Backend**: Node.js, Express.js
+* **Database**: MongoDB Atlas
+* **Tools**: Mongoose, Git, GitHub
 
-## React Compiler
+## ⚙️ Installation & Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Follow these steps to run the project locally:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/WuttikornFunk/your-repo-name.git](https://github.com/WuttikornFunk/your-repo-name.git)
+cd your-repo-name
+```
+### 2. Backend Setup
+```bash
+cd backend
+npm install
+```
+Create a .env file in the backend directory and add your credentials:
+```Code snippet
+MONGO_URI=your_mongodb_connection_string
+PORT=5000
+```
+###  Start Server
+```bash
+node server.js
+```
+### 3. Frontend Setup
+```bash
+npm install
+```
+Run the development server:
+```bash
+npm run dev
+```
